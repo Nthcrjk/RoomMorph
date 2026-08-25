@@ -3,7 +3,7 @@ package com.meow.roommorph.di.module
 import android.content.Context
 import androidx.room.Room
 import com.meow.roommorph.BuildConfig
-import com.meow.roommorph.core.room.AppDatabase
+import com.meow.roommorph.core.database.room.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

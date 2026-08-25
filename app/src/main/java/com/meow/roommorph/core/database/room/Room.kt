@@ -1,4 +1,4 @@
-package com.meow.roommorph.core.room
+package com.meow.roommorph.core.database.room
 
 import androidx.room.RoomDatabase
 
