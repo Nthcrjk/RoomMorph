@@ -1,6 +1,6 @@
 package com.meow.roommorph.di.module
 
-import android.app.NotificationManager
+import com.meow.roommorph.core.notification.INotificationManager
 import com.meow.roommorph.core.notification.NotificationManagerImpl
 import dagger.Binds
 import dagger.Module
@@ -16,5 +16,5 @@ abstract class NotificationModule {
     @Singleton
     internal abstract fun bindNotificationManager(
         impl: NotificationManagerImpl
-    ): NotificationManager
+    ): INotificationManager
 }
