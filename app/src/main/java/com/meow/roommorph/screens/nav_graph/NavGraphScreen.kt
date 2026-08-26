@@ -1,14 +1,23 @@
 package com.meow.roommorph.screens.nav_graph
 
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import com.meow.roommorph.R
 import com.meow.roommorph.core.navigation.NavigationEvent
+import com.meow.roommorph.ui.kit.PresetItem
 
 @Composable
 fun NavGraphScreen(
@@ -16,6 +25,8 @@ fun NavGraphScreen(
 ) {
     val navController = rememberNavController()
     val lifecycleOwner = LocalLifecycleOwner.current
+
+    var isSelected by remember { mutableStateOf(false) }
 
     LaunchedEffect(viewModel.navigationManager.events, lifecycleOwner) {
         lifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -37,11 +48,25 @@ fun NavGraphScreen(
             }
         }
     }
-
+    PresetItem(
+        "Английский Английский Английский",
+        painterResource(R.drawable.test_room),
+        isSelected,
+        {isSelected = !isSelected}
+    )
+    /*
     NavHost(
         navController = navController,
         startDestination = "meow"
     ) {
 
     }
+
+     */
+}
+
+@Preview
+@Composable
+fun PreviewGreeting() {
+
 }
