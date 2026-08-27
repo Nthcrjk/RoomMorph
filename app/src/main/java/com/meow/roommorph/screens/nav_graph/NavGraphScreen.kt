@@ -15,6 +15,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.compose.rememberNavController
 import com.meow.roommorph.R
 import com.meow.roommorph.core.navigation.NavigationEvent
+import com.meow.roommorph.screens.general.GeneralRoute
 import com.meow.roommorph.screens.general.GeneralScreen
 import com.meow.roommorph.screens.general.ui.PresetItem
 
@@ -47,7 +48,7 @@ fun NavGraphScreen(
             }
         }
     }
-    GeneralScreen()
+    GeneralRoute()
     /*
     PresetItem(
         "Английский Английский Английский",

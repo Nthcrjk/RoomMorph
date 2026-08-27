@@ -20,12 +20,16 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.meow.roommorph.ui.theme.RoomMorphTheme
 import com.meow.roommorph.R
+import com.meow.roommorph.screens.general.PhotoPickerState
 import com.meow.roommorph.ui.theme.Typography
 
 @Composable
-fun PreviewPhotoHolder() {
+fun PreviewPhotoHolder(state: PhotoPickerState) {
     Card(
-        elevation = CardDefaults.elevatedCardElevation(0.dp)
+        elevation = CardDefaults.elevatedCardElevation(0.dp),
+        onClick = {
+
+        },
     ) {
         Column {
             Spacer(Modifier.height(8.dp))
@@ -42,7 +46,7 @@ fun PreviewPhotoHolder() {
             HorizontalDivider(Modifier.padding(horizontal = 16.dp))
             Spacer(Modifier.height(4.dp))
             AsyncImage(
-                model = null,
+                model = state.model,
                 contentDescription = "Сгенерированная комната",
                 fallback = painterResource(R.drawable.camera_grid),
                 placeholder = painterResource(R.drawable.camera_grid)
@@ -55,6 +59,6 @@ fun PreviewPhotoHolder() {
 @Composable
 fun PreviewPhotoHolderPreview() {
     RoomMorphTheme {
-        PreviewPhotoHolder()
+        PreviewPhotoHolder(PhotoPickerState())
     }
 }

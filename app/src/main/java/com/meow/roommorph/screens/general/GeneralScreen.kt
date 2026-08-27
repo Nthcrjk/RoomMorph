@@ -17,9 +17,9 @@ import com.meow.roommorph.ui.theme.Typography
 
 @Composable
 fun GeneralScreen(
-
+    state: GeneralUiState
 ) {
-    Scaffold() { paddingValues ->
+    Scaffold { paddingValues ->
         Column(
             modifier = Modifier
                 .padding(paddingValues)
@@ -30,7 +30,7 @@ fun GeneralScreen(
                 style = Typography.titleLarge
             )
             Spacer(Modifier.height(16.dp))
-            PreviewPhotoHolder()
+            PreviewPhotoHolder(state.photoPicker)
         }
     }
 }
@@ -39,6 +39,6 @@ fun GeneralScreen(
 @Composable
 fun GeneralScreenPreview() {
     RoomMorphTheme {
-        GeneralScreen()
+        GeneralScreen(GeneralUiState())
     }
 }
