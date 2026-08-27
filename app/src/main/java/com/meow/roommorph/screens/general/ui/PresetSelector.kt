@@ -1,17 +1,20 @@
-package com.meow.roommorph.ui.kit
+package com.meow.roommorph.screens.general.ui
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -36,15 +39,45 @@ import com.meow.roommorph.ui.theme.RoomMorphTheme
 import com.meow.roommorph.ui.theme.TextBlack
 
 @Composable
-fun PresetSelector() {
-
+fun PresetSelector(
+    modifier: Modifier = Modifier
+) {
+    var scrollState = rememberScrollState()
+    Row(
+        modifier = modifier
+            .horizontalScroll(scrollState),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        PresetItem(
+            "",
+            "Английский",
+            painterResource(R.drawable.test_room),
+            true,
+            {}
+        )
+        PresetItem(
+            "",
+            "Английский",
+            painterResource(R.drawable.test_room),
+            false,
+            {}
+        )
+        PresetItem(
+            "",
+            "Английский",
+            painterResource(R.drawable.test_room),
+            false,
+            {}
+        )
+    }
 }
 
 @Composable
 fun PresetItem(
+    id: String,
     text: String,
     painter: Painter,
-    isSelected: Boolean = false,
+    isSelected: Boolean,
     onClick: () -> Unit
 ) {
 
@@ -108,12 +141,6 @@ fun PresetSelectorPreview() {
             modifier = Modifier
                 .fillMaxSize()
         ) {
-            PresetItem(
-                "Английский",
-                painterResource(R.drawable.test_room),
-                true,
-                {}
-            )
             PresetSelector()
         }
     }
