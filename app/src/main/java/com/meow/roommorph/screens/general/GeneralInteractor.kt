@@ -1,4 +1,6 @@
 package com.meow.roommorph.screens.general
 
-class GeneralInteractor {
+import javax.inject.Inject
+
+class GeneralInteractor @Inject constructor() {
 }
