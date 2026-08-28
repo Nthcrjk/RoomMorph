@@ -17,21 +17,23 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.meow.roommorph.ui.theme.RoomMorphTheme
-import com.meow.roommorph.ui.theme.TextBlack
+import com.meow.roommorph.ui.theme.TextDark
 import com.meow.roommorph.ui.theme.PrimaryCyanDark
 import com.meow.roommorph.ui.theme.Typography
 
 @Composable
 fun PrimaryRoundedButton(
     text: String,
+    enabled: Boolean = true,
+    modifier: Modifier = Modifier,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier
 ) {
     Button(
         onClick = onClick,
         modifier = modifier
             .fillMaxWidth()
             .height(48.dp),
+        enabled = enabled,
         shape = RoundedCornerShape(24.dp),
         colors = ButtonDefaults.buttonColors(
             containerColor = PrimaryCyanDark,
@@ -40,9 +42,8 @@ fun PrimaryRoundedButton(
     ) {
         Text(
             text = text,
-            fontSize = 18.sp,
-            fontWeight = FontWeight.Bold,
-            color = TextBlack
+            style = Typography.labelLarge,
+            color = TextDark
         )
     }
 }
@@ -61,7 +62,7 @@ fun CommonPreview() {
                 style = Typography.bodyLarge
             )
             Box(modifier = Modifier.height(8.dp))
-            PrimaryRoundedButton("sss", {})
+            PrimaryRoundedButton("Кошка", false) {}
         }
     }
 }

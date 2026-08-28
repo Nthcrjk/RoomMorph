@@ -6,11 +6,11 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 
 @Singleton
-class NavigationManager @Inject constructor() {
+class NavigationManagerImpl @Inject constructor(): INavigationManager {
     private val _events = Channel<NavigationEvent>(Channel.BUFFERED)
-    val events = _events.receiveAsFlow()
+    override val events = _events.receiveAsFlow()
 
-    fun navigate(event: NavigationEvent) {
+    override fun navigate(event: NavigationEvent) {
         _events.trySend(event)
     }
 }
